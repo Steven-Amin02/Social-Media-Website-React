@@ -1,0 +1,214 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-route-blue: #2463eb;
+  --color-route-ink: #182338;
+  --color-route-muted: #748095;
+  --color-route-canvas: #f6f8fb;
+  --color-neutral-primary: #ffffff;
+  --color-neutral-primary-medium: #ffffff;
+  --color-neutral-secondary-soft: #f6f8fb;
+  --color-neutral-tertiary: #e7eefb;
+  --color-neutral-tertiary-medium: #f1f5f9;
+  --color-default: #e7ebf1;
+  --color-default-medium: #e2e8f0;
+  --color-heading: #182338;
+  --color-body: #748095;
+  --color-brand: #2463eb;
+  --color-fg-brand: #2463eb;
+  --radius-base: 0.75rem;
+  --container-screen-xl: 80rem;
+  --font-sans:
+    'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply m-0 bg-route-canvas font-sans text-route-ink antialiased;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  summary {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button,
+  a {
+    touch-action: manipulation;
+  }
+  button:not(:disabled),
+  label:has(input[type='file']) {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  button {
+    border: 0;
+    background: none;
+  }
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+  h1,
+  h2,
+  h3 {
+    line-height: 1.25;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  select,
+  textarea {
+    @apply w-full rounded-xl border border-slate-200 bg-white;
+    color: #223049;
+    padding: 12px 14px;
+    outline: none;
+    transition:
+      border-color 0.15s,
+      box-shadow 0.15s;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #5084ef;
+    box-shadow: 0 0 0 3px #2463eb12;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: #a0a8b5;
+  }
+  input[aria-invalid='true'],
+  select[aria-invalid='true'] {
+    border-color: #e49b9b;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 72px;
+  }
+  :focus-visible {
+    outline: 3px solid #7da7ff;
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: #dce8ff;
+    color: #173f8a;
+  }
+}
+
+@layer components {
+  .row {
+    @apply flex items-center gap-3;
+  }
+  .grow {
+    @apply min-w-0 flex-1;
+  }
+  .stack {
+    @apply flex flex-col gap-5;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white;
+    border-color: #e7ebf1;
+    box-shadow: 0 2px 3px #18233802;
+  }
+  .muted {
+    @apply text-route-muted;
+  }
+  .small {
+    @apply text-xs;
+  }
+  .text-link {
+    @apply inline-flex items-center gap-1 font-semibold text-route-blue;
+  }
+  .text-link:hover {
+    text-decoration: underline;
+  }
+  .field {
+    @apply flex min-w-0 flex-col gap-2;
+  }
+  .field label {
+    font-size: 12px;
+    font-weight: 650;
+    color: #39455a;
+  }
+  .field-error {
+    @apply text-xs text-red-600;
+    line-height: 1.5;
+  }
+  .field-hint {
+    @apply text-xs text-route-muted;
+    line-height: 1.6;
+  }
+  .form-stack {
+    @apply flex flex-col gap-5;
+  }
+  .form-grid {
+    @apply grid grid-cols-2 gap-4;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs font-semibold transition-colors;
+    min-height: 40px;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    @apply bg-route-blue text-white;
+    box-shadow: 0 3px 8px #2463eb18;
+  }
+  .btn-primary:not(:disabled):hover {
+    background: #1754d3;
+  }
+  .btn-secondary {
+    @apply border border-slate-200 bg-white text-route-ink;
+  }
+  .btn-secondary:not(:disabled):hover {
+    background: #f4f7fb;
+  }
+  .btn-ghost {
+    @apply text-route-blue;
+  }
+  .btn-ghost:not(:disabled):hover {
+    background: #eef4ff;
+  }
+  .btn-danger {
+    @apply bg-red-600 text-white;
+  }
+  .btn-danger:not(:disabled):hover {
+    background: #b91c1c;
+  }
+  .icon-button {
+    @apply relative inline-flex shrink-0 items-center justify-center rounded-xl text-route-muted transition-colors;
+    width: 36px;
+    height: 36px;
+  }
+  .icon-button:not(:disabled):hover {
+    background: #f0f4fb;
+    color: #2463eb;
+  }
+}
