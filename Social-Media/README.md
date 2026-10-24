@@ -23,6 +23,12 @@ npm run lint        # ESLint and React hook checks
 npm run format      # Prettier
 ```
 
+## Deploy to Vercel
+
+Set the Vercel project's **Root Directory** to `Social-Media`, **Framework Preset** to `Vite`, **Build Command** to `npm run build`, and **Output Directory** to `dist`.
+
+The included `vercel.json` rewrites application URLs to `index.html` so React Router can handle direct visits and refreshes on routes such as `/login` and `/posts/:postId`. Commit and push this file to the deployment branch to deploy the fix. After deployment, open `/login` directly and refresh it to verify routing.
+
 ## Features
 
 - Sign-up, login by email/username, session restoration, logout, and password changes.
@@ -80,4 +86,4 @@ Verified against the live backend during implementation:
 
 ## Boundaries
 
-Local source and production build only; hosting is not configured. The provider describes this backend as a free learning/testing service, not a production service. Messaging, stories, videos, global search, general profile editing, password recovery, Arabic, and dark mode are outside this version. Typed `@username` mentions are preserved; links appear only when a response supplies a matching user identifier, with no invented autocomplete endpoint.
+Vercel SPA routing is configured in `vercel.json`; deploying still requires a Vercel project. The provider describes this backend as a free learning/testing service, not a production service. Messaging, stories, videos, global search, general profile editing, password recovery, Arabic, and dark mode are outside this version. Typed `@username` mentions are preserved; links appear only when a response supplies a matching user identifier, with no invented autocomplete endpoint.
